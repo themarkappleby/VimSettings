@@ -123,3 +123,6 @@ nnoremap ,m :w <BAR> !lessc % > %:t:r.css<CR><space>
 
 "add fugitive to statusline
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+
+"needed for Taglist plugin
+let Tlist_Ctags_Cmd = '~/.vim/bundle/taglist/ctags/ctags.1'
