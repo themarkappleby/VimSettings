@@ -41,8 +41,8 @@ setl autoindent              "Auto indent based on previous line
 setl smartindent             "Smart autoindenting on new line
 setl smarttab                "Respect space/tab settings
 setl expandtab               "Tab key inserts spaces
-setl tabstop=2               "Use two spaces for tabs
-setl shiftwidth=2            "Use two spaces for auto-indent
+setl tabstop=4               "Use two spaces for tabs
+setl shiftwidth=4            "Use two spaces for auto-indent
 setl textwidth=80            "Limit comment lines to 80 characters.
 setl formatoptions-=t
 setl formatoptions+=croql
