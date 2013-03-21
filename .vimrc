@@ -140,7 +140,7 @@ set cursorline
 "-------------- Keyboard Settings -------------- {{{ 
 
 "map the leader to ','
-let mapleader = ','
+let mapleader=','
 
 "toggle search highlighting with `
 nnoremap ` :set hlsearch!<cr>h

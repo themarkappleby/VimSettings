@@ -1,23 +1,36 @@
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 argglobal
-onoremap <buffer> <silent> [[ ?\(.*\%#\)\@!\_^\s*\zs\(\(abstract\s\+\|final\s\+\|private\s\+\|protected\s\+\|public\s\+\|static\s\+\)*function\|\(abstract\s\+\|final\s\+\)*class\|interface\)?:nohls
-nnoremap <buffer> <silent> [[ ?\(.*\%#\)\@!\_^\s*\zs\(\(abstract\s\+\|final\s\+\|private\s\+\|protected\s\+\|public\s\+\|static\s\+\)*function\|\(abstract\s\+\|final\s\+\)*class\|interface\)?:nohls
-onoremap <buffer> <silent> ]] /\(.*\%#\)\@!\_^\s*\zs\(\(abstract\s\+\|final\s\+\|private\s\+\|protected\s\+\|public\s\+\|static\s\+\)*function\|\(abstract\s\+\|final\s\+\)*class\|interface\)/:nohls
-nnoremap <buffer> <silent> ]] /\(.*\%#\)\@!\_^\s*\zs\(\(abstract\s\+\|final\s\+\|private\s\+\|protected\s\+\|public\s\+\|static\s\+\)*function\|\(abstract\s\+\|final\s\+\)*class\|interface\)/:nohls
+let s:cpo_save=&cpo
+set cpo&vim
+inoremap <buffer> <silent> <Nul> =fuf#getRunningHandler().onPreviewBase(1) ? "" : ""
+inoremap <buffer> <silent> <BS> =fuf#getRunningHandler().onBs() ? "" : ""
+inoremap <buffer> <silent>  =fuf#getRunningHandler().onBs() ? "" : ""
+inoremap <buffer> <silent> <NL> =fuf#getRunningHandler().onCr(2) ? "" : ""
+inoremap <buffer> <silent>  =fuf#getRunningHandler().onCr(3) ? "" : ""
+inoremap <buffer> <silent>  =fuf#getRunningHandler().onCr(4) ? "" : ""
+inoremap <buffer> <silent>  =fuf#getRunningHandler().onCr(1) ? "" : ""
+inoremap <buffer> <silent>  =fuf#getRunningHandler().onRecallPattern(+1) ? "" : ""
+inoremap <buffer> <silent>  =fuf#getRunningHandler().onSwitchMode(+1) ? "" : ""
+inoremap <buffer> <silent>  =fuf#getRunningHandler().onDeleteWord() ? "" : ""
+inoremap <buffer> <silent>  =fuf#getRunningHandler().onSwitchMode(-1) ? "" : ""
+inoremap <buffer> <silent>  =fuf#getRunningHandler().onSwitchMatching() ? "" : ""
+inoremap <buffer> <silent>  =fuf#getRunningHandler().onRecallPattern(-1) ? "" : ""
+let &cpo=s:cpo_save
+unlet s:cpo_save
 setlocal keymap=
 setlocal noarabic
 setlocal noautoindent
 setlocal balloonexpr=
 setlocal nobinary
-setlocal bufhidden=
+setlocal bufhidden=delete
 setlocal buflisted
-setlocal buftype=
-setlocal nocindent
+setlocal buftype=nofile
+setlocal cindent
 setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
 setlocal cinoptions=
 setlocal cinwords=if,else,while,do,for,switch
 setlocal colorcolumn=
-setlocal comments=s1:/*,mb:*,ex:*/,://,:#
+setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
 setlocal commentstring=/*%s*/
 setlocal complete=.,w,b,u,t,i
 setlocal concealcursor=
@@ -27,15 +40,15 @@ setlocal nocopyindent
 setlocal cryptmethod=
 setlocal nocursorbind
 setlocal nocursorcolumn
-setlocal cursorline
+setlocal nocursorline
 setlocal define=
 setlocal dictionary=
 setlocal nodiff
 setlocal equalprg=
 setlocal errorformat=
 setlocal noexpandtab
-if &filetype != 'php'
-setlocal filetype=php
+if &filetype != 'fuf'
+setlocal filetype=fuf
 endif
 setlocal foldcolumn=1
 setlocal foldenable
@@ -48,15 +61,15 @@ setlocal foldminlines=1
 setlocal foldnestmax=20
 setlocal foldtext=foldtext()
 setlocal formatexpr=
-setlocal formatoptions=qrowcb
+setlocal formatoptions=tcq
 setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
 setlocal grepprg=
 setlocal iminsert=2
 setlocal imsearch=2
-setlocal include=\\(require\\|include\\)\\(_once\\)\\?
+setlocal include=
 setlocal includeexpr=
-setlocal indentexpr=GetPhpIndent()
-setlocal indentkeys=0{,0},0),:,!^F,o,O,e,*<Return>,=?>,=<?,=*/
+setlocal indentexpr=
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
 setlocal noinfercase
 setlocal iskeyword=@,48-57,_,192-255
 setlocal keywordprg=
@@ -65,13 +78,13 @@ setlocal nolisp
 setlocal nolist
 setlocal nomacmeta
 setlocal makeprg=
-setlocal matchpairs=(:),{:},[:],<:>
+setlocal matchpairs=(:),{:},[:]
 setlocal modeline
 setlocal modifiable
 setlocal nrformats=octal,hex
 setlocal number
 setlocal numberwidth=4
-setlocal omnifunc=phpcomplete#CompletePHP
+setlocal omnifunc=fuf#onComplete
 setlocal path=
 setlocal nopreserveindent
 setlocal nopreviewwindow
@@ -85,31 +98,31 @@ setlocal shiftwidth=8
 setlocal noshortname
 setlocal nosmartindent
 setlocal softtabstop=0
-setlocal nospell
+setlocal spell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
-setlocal statusline=%!Powerline(2)
+setlocal statusline=%!Powerline(19)
 setlocal suffixesadd=
 setlocal noswapfile
 setlocal synmaxcol=3000
-if &syntax != 'php'
-setlocal syntax=php
+if &syntax != 'fuf'
+setlocal syntax=fuf
 endif
 setlocal tabstop=8
 setlocal tags=
-setlocal textwidth=0
+setlocal textwidth=78
 setlocal thesaurus=
 setlocal noundofile
 setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 56 - ((47 * winheight(0) + 39) / 78)
+let s:l = 1 - ((0 * winheight(0) + 0) / 1)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-56
+1
 normal! 0
 lcd ~/
 let &so = s:so_save | let &siso = s:siso_save
