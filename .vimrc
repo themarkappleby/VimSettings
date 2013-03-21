@@ -1,26 +1,107 @@
-"Create a symlink to the dropbox .vim folder in your home directory
-"Open your local .vimrc and add the following line
-"source ~/.vim/.vimrc
+"-------------- Manage Bundles -------------- {{{
 
-"disable compatabile mode
-set nocp
+"perform like vim and not vi 
+set nocompatible
 
-"allow file specific settings
-"allow for file specific auto indentation
-"vim crawls the ftplugin directory
-filetype indent plugin on
+"required before loading in vundle bundles
+filetype off 
 
-"use 'Pathogen' to manage bundles
-call pathogen#infect()
+"load vundle
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
 
-"change Leader from / to ,
-let mapleader=","
+"vundle itself
+Bundle 'gmarik/vundle'
 
-"map ` to toggle search highlighting
-nnoremap ` :set hlsearch!<cr>h 
+"dark colour scheme
+Bundle 'tomasr/molokai'
 
-"ensure syntax highlighting is enabled
-syntax on
+"git integration
+Bundle 'tpope/vim-fugitive'
+
+"show git diff in gutter
+Bundle 'airblade/vim-gitgutter'
+
+"displays an autocomplete pop-up
+Bundle 'vim-scripts/AutoComplPop'
+
+"file explorer sidebar
+Bundle 'scrooloose/nerdtree'
+
+"make NERDTree look consistent across tabs
+Bundle 'jistr/vim-nerdtree-tabs'
+
+"show CSS colours
+Bundle 'skammer/vim-css-color'
+
+"quicker movement around buffer
+Bundle 'Lokaltog/vim-easymotion'
+
+"makes vim's status line sexier
+Bundle 'Lokaltog/powerline'
+
+"install powerline compatible fonts
+Bundle 'Lokaltog/powerline-fonts'
+
+"markdown syntax highlighting
+Bundle 'tpope/vim-markdown'
+
+"expand html
+Bundle 'tristen/vim-sparkup'
+
+"surround text with tags quickly
+Bundle 'tpope/vim-surround'
+
+"re-enable filetype detection
+filetype plugin indent on
+
+"}}}
+
+"-------------- System Settings -------------- {{{
+
+"enable incremental search
+set incsearch
+
+"display line numbers
+set number
+
+"3 line scroll buffer
+set scrolloff=3
+
+"enable spellcheck
+setlocal spell spelllang=en_us
+
+"allow yank to osx clipboard
+set clipboard+=unnamed
+
+"set folds to be marker controlled
+set foldmethod=marker
+
+"display fold gutter column
+set foldcolumn=1
+
+"save and restore folds
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview
+
+"ensure no CodeKit conflicts
+set nobackup
+set nowritebackup
+set noswapfile
+
+"enable bash-like tab completion
+set wildmode=longest,list,full
+set wildmenu
+
+"}}}
+
+"-------------- Text Settings -------------- {{{
+
+"set default font
+set guifont=Inconsolata_for_Powerline:h16
+
+"enable C style auto indentation
+set cindent 
 
 "enable text wrapping
 set wrap
@@ -28,44 +109,61 @@ set wrap
 "ensure wrapped words don't break mid-word
 set linebreak
 
-"select color scheme
-let g:molokai_original = 1
-colorscheme molokai
-
-"enable incremental search
-set incsearch
-hi Search guibg=#ffffff guifg=#000000
-
-"change visual selection colors
-hi Visual guibg=#ffffff guifg=#000000
-
 "remove random underlines
 let html_no_rendering=1
 
-"set default font
-set guifont=Inconsolata:h16
+"}}}
 
-"change default cursor color
-highlight Cursor guifg=white guibg=#FA2DAE
+"-------------- Colour Settings -------------- {{{
 
-"display line numbers
-set number
+"enable syntax highlighting
+syntax on
 
-"start scrolling at 3 lines before
-"the edge of the page
-set scrolloff=3
+"select colour scheme
+let g:molokai_original=1
+colorscheme molokai
+
+"set search highlighting to black on white
+hi Search guibg=#ffffff guifg=#000000
+
+"set visual highlighting to black on white
+hi Visual guibg=#ffffff guifg=#000000
+
+"make default cursor hot pink
+highlight Cursor guifg=#ffffff guibg=#FA2DAE
 
 "highlight current line
-set cul
+set cursorline
 
-"enable spell check
-setlocal spell spelllang=en_us
+"}}}
 
-"yank to OSX clipboard
-set clipboard+=unnamed
+"-------------- Keyboard Settings -------------- {{{ 
 
-"allow 'jj' to jump out of insert mode
+"map the leader to ','
+let mapleader = ','
+
+"toggle search highlighting with `
+nnoremap ` :set hlsearch!<cr>h
+
+"map 'jj' to exit insert mode
 imap jj <Esc>
+
+"allow 'j' and 'k' to move in wrapped lines
+noremap j gj
+noremap k gk
+
+"allow control-a to copy buffer to clipboard
+map <C-a> ggVy''
+
+"move between split buffers
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+"}}}
+
+"-------------- NERDTree Settings -------------- {{{ 
 
 "allow spacebar to toggle NERDTree
 nmap <Space> :NERDTreeTabsToggle<cr>
@@ -73,58 +171,39 @@ nmap <Space> :NERDTreeTabsToggle<cr>
 "allow NERDTree to show hidden files
 let NERDTreeShowHidden=1
 
-"show NERDTree bookmarks by default
+"show NERDTree bookmarks
 let NERDTreeShowBookmarks=1
 
+"blur NERDTree on startup
+let g:nerdtree_tabs_smart_startup_focus=2
+
+"}}}
+
+"-------------- Powerline Settings -------------- {{{ 
+
+"enable powerline
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+
+"}}}
+
+"-------------- Sparkup Settings -------------- {{{ 
+
 "execute sparkup with ',,'
-let g:sparkupExecuteMapping = ',,'
+let g:sparkupExecuteMapping=',,'
 
-"execute sparkup next with ',n'
-let g:sparkupNextMapping = ',n'
+"jump to next input with ',n'
+let g:sparkupNextMapping=',n'
 
-"allow MacVim to work with CodeKit
-set nobackup
-set nowritebackup
-set noswapfile
+"}}}
 
-"display powerline
-set nocompatible
-set laststatus=2
-set encoding=utf-8
-let g:Powerline_symbols='fancy'
+"-------------- Markdown Settings -------------- {{{ 
 
-"allow j and k to move in wordwrapped lines
-noremap j gj
-noremap k gk
-
-"press ctrl-a to copy whole document to clipboard
-map <C-a> ggVGy''
-
-"switch between panes with the ctrl modifier
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
-
-"define MD command. Generates HTML file from Markdown
+"compile to markdown with ':MD'
 command! MD call CompileMarkdown()
 function! CompileMarkdown()
-	:%!~/.vim/bundle/markdown/Markdown.pl --html4tags
+	:%!~/.vim/custom/Markdown.pl --html4tags
 	:w! %:p:r.html
 	u
 endfunction
 
-"enable bash-like file name tab completion
-set wildmode=longest,list,full
-set wildmenu
-
-"required for LESS
-nnoremap ,m :w <BAR> !lessc % > %:t:r.css<CR><space>
-
-"add fugitive to statusline
-set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
-
-"needed for Taglist plugin
-let Tlist_Ctags_Cmd = '~/.vim/bundle/taglist/ctags/ctags.1'
-
-command Bash ConqueTerm bash
+"}}}
