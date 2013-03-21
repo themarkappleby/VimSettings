@@ -177,6 +177,9 @@ let NERDTreeShowBookmarks=1
 "blur NERDTree on startup
 let g:nerdtree_tabs_smart_startup_focus=2
 
+"keep NERDTree bookmarks within vim
+let NERDTreeBookmarksFile= $HOME . '/.vim/custom/.NERDTreeBookmarks'
+
 "}}}
 
 "-------------- Powerline Settings -------------- {{{ 
