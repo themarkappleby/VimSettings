@@ -84,7 +84,7 @@ setlocal softtabstop=0
 setlocal spell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
-setlocal spelllang=en_us
+setlocal spelllang=en
 setlocal statusline=%!Powerline(2)
 setlocal suffixesadd=
 setlocal noswapfile
@@ -93,7 +93,7 @@ if &syntax != ''
 setlocal syntax=
 endif
 setlocal tabstop=8
-setlocal tags=~/Dropbox/Public/personal/vim/.git/tags,./tags,tags
+setlocal tags=
 setlocal textwidth=0
 setlocal thesaurus=
 setlocal noundofile
@@ -101,12 +101,12 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 1 - ((0 * winheight(0) + 23) / 47)
+let s:l = 1 - ((0 * winheight(0) + 39) / 79)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 1
-normal! 0
+normal! 03l
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost
 " vim: set ft=vim :

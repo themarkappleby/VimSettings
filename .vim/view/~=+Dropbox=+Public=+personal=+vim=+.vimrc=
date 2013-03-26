@@ -49,7 +49,7 @@ setlocal foldcolumn=1
 setlocal foldenable
 setlocal foldexpr=0
 setlocal foldignore=#
-setlocal foldlevel=1
+setlocal foldlevel=0
 setlocal foldmarker={{{,}}}
 setlocal foldmethod=marker
 setlocal foldminlines=1
@@ -113,11 +113,11 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 53 - ((37 * winheight(0) + 39) / 78)
+let s:l = 153 - ((152 * winheight(0) + 39) / 79)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-53
+153
 normal! 0
 lcd ~/
 let &so = s:so_save | let &siso = s:siso_save

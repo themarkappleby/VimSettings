@@ -52,6 +52,9 @@ Bundle 'tristen/vim-sparkup'
 "surround text with tags quickly
 Bundle 'tpope/vim-surround'
 
+".less file support
+Bundle 'groenewege/vim-less'
+
 "re-enable filetype detection
 filetype plugin indent on
 
@@ -88,10 +91,16 @@ autocmd BufWinEnter *.* silent loadview
 set nobackup
 set nowritebackup
 set noswapfile
+au BufReadPost *.kit set syntax=html
 
 "enable bash-like tab completion
 set wildmode=longest,list,full
 set wildmenu
+
+"drupal file support
+au BufReadPost *.module set syntax=php
+au BufReadPost *.info set syntax=php
+au BufReadPost *.inc set syntax=php
 
 "}}}
 
@@ -178,7 +187,7 @@ let NERDTreeShowBookmarks=1
 let g:nerdtree_tabs_smart_startup_focus=2
 
 "keep NERDTree bookmarks within vim
-let NERDTreeBookmarksFile= $HOME . '/.vim/custom/.NERDTreeBookmarks'
+let NERDTreeBookmarksFile = $HOME . '/.vim/custom/.NERDTreeBookmarks' 
 
 "}}}
 
