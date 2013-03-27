@@ -55,6 +55,9 @@ Bundle 'tpope/vim-surround'
 ".less file support
 Bundle 'groenewege/vim-less'
 
+"org mode for vim
+Bundle 'jceb/vim-orgmode'
+
 "re-enable filetype detection
 filetype plugin indent on
 
