@@ -164,6 +164,9 @@ imap jj <Esc>
 noremap j gj
 noremap k gk
 
+"map tab to toggle folding
+nmap <tab> za
+
 "allow control-a to copy buffer to clipboard
 map <C-a> ggVy''
 

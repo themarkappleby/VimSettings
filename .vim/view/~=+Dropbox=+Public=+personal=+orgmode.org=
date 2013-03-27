@@ -183,7 +183,7 @@ setlocal shiftwidth=8
 setlocal noshortname
 setlocal nosmartindent
 setlocal softtabstop=0
-setlocal spell
+setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
@@ -207,57 +207,61 @@ setlocal wrapmargin=0
 normal! zo
 8
 normal! zo
-22
+9
+normal! zo
+13
 normal! zo
 22
+normal! zo
+28
+normal! zo
+32
+normal! zo
+53
+normal! zo
+53
 normal! zc
-8
-normal! zc
-43
+84
 normal! zo
-43
-normal! zc
-74
-normal! zo
-74
-normal! zc
-115
-normal! zo
-116
-normal! zo
-117
-normal! zo
-117
+84
 normal! zc
 125
 normal! zo
-125
-normal! zc
-146
+126
 normal! zo
-146
-normal! zc
-159
+127
 normal! zo
-159
+127
 normal! zc
-173
+135
 normal! zo
-173
+135
+normal! zc
+156
+normal! zo
+156
+normal! zc
+169
+normal! zo
+169
 normal! zc
 183
 normal! zo
 183
 normal! zc
-116
+193
+normal! zo
+193
 normal! zc
-115
+126
 normal! zc
-let s:l = 2 - ((1 * winheight(0) + 39) / 79)
+125
+normal! zc
+let s:l = 9 - ((8 * winheight(0) + 39) / 79)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-2
+9
 normal! 0
 lcd ~/
 let &so = s:so_save | let &siso = s:siso_save

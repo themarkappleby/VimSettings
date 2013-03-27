@@ -103,12 +103,12 @@ setlocal wrap
 setlocal wrapmargin=0
 96
 normal! zo
-let s:l = 106 - ((105 * winheight(0) + 39) / 79)
+let s:l = 110 - ((109 * winheight(0) + 39) / 79)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-106
-normal! 0
+110
+normal! 034l
 lcd ~/
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost
