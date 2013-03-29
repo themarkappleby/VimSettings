@@ -93,13 +93,13 @@ setlocal spellfile=
 setlocal spelllang=en
 setlocal statusline=%!Powerline(3)
 setlocal suffixesadd=
-setlocal swapfile
+setlocal noswapfile
 setlocal synmaxcol=3000
 if &syntax != 'help'
 setlocal syntax=help
 endif
 setlocal tabstop=8
-setlocal tags=
+setlocal tags=~/Dropbox/Public/personal/vim/.vim/bundle/vim-nerdtree-tabs/.git/text.tags,~/Dropbox/Public/personal/vim/.vim/bundle/vim-nerdtree-tabs/.git/tags,./tags,tags
 setlocal textwidth=78
 setlocal thesaurus=
 setlocal noundofile
@@ -107,12 +107,12 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 426 - ((3 * winheight(0) + 19) / 39)
+let s:l = 11 - ((10 * winheight(0) + 39) / 79)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-426
-normal! 013l
+11
+normal! 0
 lcd ~/
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost

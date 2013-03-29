@@ -52,8 +52,8 @@ Bundle 'tristen/vim-sparkup'
 "surround text with tags quickly
 Bundle 'tpope/vim-surround'
 
-".less file support
-Bundle 'groenewege/vim-less'
+"support for haml, sass, and scss
+Bundle 'tpope/vim-haml'
 
 "org mode for vim
 Bundle 'jceb/vim-orgmode'

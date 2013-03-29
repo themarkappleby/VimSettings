@@ -257,11 +257,11 @@ normal! zc
 normal! zc
 125
 normal! zc
-let s:l = 9 - ((8 * winheight(0) + 39) / 79)
+let s:l = 19 - ((18 * winheight(0) + 39) / 78)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-9
+19
 normal! 0
 lcd ~/
 let &so = s:so_save | let &siso = s:siso_save
