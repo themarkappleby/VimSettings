@@ -55,6 +55,9 @@ Bundle 'tpope/vim-surround'
 "support for haml, sass, and scss
 Bundle 'tpope/vim-haml'
 
+"most recent update quick access
+Bundle 'vim-scripts/mru.vim'
+
 "org mode for vim
 Bundle 'jceb/vim-orgmode'
 

@@ -14,7 +14,7 @@ setlocal cinoptions=
 setlocal cinwords=if,else,while,do,for,switch
 setlocal colorcolumn=
 setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
-setlocal commentstring=#%s
+setlocal commentstring=//\ %s
 setlocal complete=.,w,b,u,t,i
 setlocal concealcursor=
 setlocal conceallevel=0
@@ -24,14 +24,14 @@ setlocal cryptmethod=
 setlocal nocursorbind
 setlocal nocursorcolumn
 setlocal cursorline
-setlocal define=
+setlocal define=^\\s*\\%(@mixin\\|=\\)
 setlocal dictionary=
 setlocal nodiff
 setlocal equalprg=
 setlocal errorformat=
 setlocal noexpandtab
-if &filetype != 'sh'
-setlocal filetype=sh
+if &filetype != 'scss'
+setlocal filetype=scss
 endif
 setlocal foldcolumn=1
 setlocal foldenable
@@ -49,12 +49,12 @@ setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
 setlocal grepprg=
 setlocal iminsert=2
 setlocal imsearch=2
-setlocal include=
-setlocal includeexpr=
-setlocal indentexpr=GetShIndent()
-setlocal indentkeys=0{,0},!^F,o,O,e,0=then,0=do,0=else,0=elif,0=fi,0=esac,0=done,),0=;;,0=;&,0=fin,0=fil,0=fip,0=fir,0=fix
+setlocal include=^\\s*@import\\s\\+\\%(url(\\)\\=[\"']\\=
+setlocal includeexpr=substitute(v:fname,'\\%(.*/\\|^\\)\\zs','_','')
+setlocal indentexpr=GetCSSIndent()
+setlocal indentkeys=0{,0},!^F,o,O
 setlocal noinfercase
-setlocal iskeyword=@,48-57,_,192-255,.
+setlocal iskeyword=@,48-57,_,192-255
 setlocal keywordprg=
 setlocal linebreak
 setlocal nolisp
@@ -67,7 +67,7 @@ setlocal modifiable
 setlocal nrformats=octal,hex
 setlocal number
 setlocal numberwidth=4
-setlocal omnifunc=
+setlocal omnifunc=csscomplete#CompleteCSS
 setlocal path=
 setlocal nopreserveindent
 setlocal nopreviewwindow
@@ -85,12 +85,12 @@ setlocal spell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en_us
-setlocal statusline=%!Powerline(17)
-setlocal suffixesadd=
+setlocal statusline=%!Powerline(2)
+setlocal suffixesadd=.sass,.scss,.css
 setlocal noswapfile
 setlocal synmaxcol=3000
-if &syntax != 'sh'
-setlocal syntax=sh
+if &syntax != 'scss'
+setlocal syntax=scss
 endif
 setlocal tabstop=8
 setlocal tags=
@@ -101,12 +101,12 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 9 - ((8 * winheight(0) + 23) / 46)
+let s:l = 30 - ((29 * winheight(0) + 23) / 47)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-9
-normal! 054l
+30
+normal! 09l
 lcd ~/
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost
