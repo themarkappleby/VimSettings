@@ -127,6 +127,11 @@ set linebreak
 "remove random underlines
 let html_no_rendering=1
 
+"use four spaces instead of tabs
+set expandtab
+set shiftwidth=4
+set tabstop=4
+
 "}}}
 
 "-------------- Colour Settings -------------- {{{

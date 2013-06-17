@@ -81,11 +81,11 @@ setlocal shiftwidth=8
 setlocal noshortname
 setlocal nosmartindent
 setlocal softtabstop=0
-setlocal spell
+setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
-setlocal spelllang=en_us
-setlocal statusline=%!Powerline(2)
+setlocal spelllang=en
+setlocal statusline=%!Powerline(4)
 setlocal suffixesadd=
 setlocal noswapfile
 setlocal synmaxcol=3000
@@ -101,12 +101,13 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 4 - ((3 * winheight(0) + 23) / 47)
+let s:l = 59 - ((37 * winheight(0) + 23) / 46)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-4
-normal! 01l
+59
+normal! 021l
+lcd ~/
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost
 " vim: set ft=vim :

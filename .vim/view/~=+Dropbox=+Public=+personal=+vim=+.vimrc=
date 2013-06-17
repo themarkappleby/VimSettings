@@ -115,11 +115,11 @@ setlocal wrap
 setlocal wrapmargin=0
 132
 normal! zo
-let s:l = 153 - ((152 * winheight(0) + 23) / 47)
+let s:l = 154 - ((153 * winheight(0) + 23) / 46)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-153
+154
 normal! 0
 lcd ~/
 let &so = s:so_save | let &siso = s:siso_save

@@ -95,7 +95,7 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
-setlocal statusline=%!Powerline(2)
+setlocal statusline=%!Powerline(59)
 setlocal suffixesadd=.rb
 setlocal noswapfile
 setlocal synmaxcol=3000

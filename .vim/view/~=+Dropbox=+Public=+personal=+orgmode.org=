@@ -217,58 +217,42 @@ normal! zc
 normal! zo
 66
 normal! zc
-98
+100
 normal! zo
-98
+100
 normal! zc
-139
-normal! zo
-140
-normal! zo
 141
 normal! zo
+142
+normal! zo
+143
+normal! zo
+143
+normal! zc
+172
+normal! zo
+172
+normal! zc
+185
+normal! zo
+185
+normal! zc
+199
+normal! zo
+199
+normal! zc
+142
+normal! zc
 141
 normal! zc
-149
+298
 normal! zo
-149
-normal! zc
-170
-normal! zo
-170
-normal! zc
-183
-normal! zo
-183
-normal! zc
-197
-normal! zo
-197
-normal! zc
-207
-normal! zo
-207
-normal! zc
-140
-normal! zc
-139
-normal! zc
-260
-normal! zo
-296
-normal! zo
-297
-normal! zo
-297
-normal! zc
-296
-normal! zc
-let s:l = 274 - ((273 * winheight(0) + 23) / 47)
+let s:l = 326 - ((325 * winheight(0) + 23) / 46)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-274
-normal! 024l
+326
+normal! 054l
 lcd ~/
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost

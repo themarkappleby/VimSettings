@@ -135,7 +135,7 @@ if &syntax != 'nerdtree'
 setlocal syntax=nerdtree
 endif
 setlocal tabstop=8
-setlocal tags=
+setlocal tags=~/Dropbox/Private/jet-cooper/cineplex/store/code/447_cineplex_store/.git/nerdtree.tags,~/Dropbox/Private/jet-cooper/cineplex/store/code/447_cineplex_store/.git/tags,./tags,tags
 setlocal textwidth=0
 setlocal thesaurus=
 setlocal noundofile
@@ -143,11 +143,11 @@ setlocal nowinfixheight
 setlocal winfixwidth
 setlocal nowrap
 setlocal wrapmargin=0
-let s:l = 13 - ((12 * winheight(0) + 23) / 47)
+let s:l = 22 - ((21 * winheight(0) + 23) / 46)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-13
+22
 normal! 0
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost
