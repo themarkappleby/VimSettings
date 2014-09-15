@@ -85,7 +85,7 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
-setlocal statusline=%!Powerline(30)
+setlocal statusline=%!Powerline(11)
 setlocal suffixesadd=.sass,.scss,.css
 setlocal noswapfile
 setlocal synmaxcol=3000
@@ -101,11 +101,11 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 1 - ((0 * winheight(0) + 23) / 46)
+let s:l = 28 - ((13 * winheight(0) + 11) / 23)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
+28
 normal! 0
 lcd ~/
 let &so = s:so_save | let &siso = s:siso_save

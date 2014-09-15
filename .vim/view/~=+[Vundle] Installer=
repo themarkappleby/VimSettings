@@ -43,7 +43,7 @@ setlocal dictionary=
 setlocal nodiff
 setlocal equalprg=
 setlocal errorformat=
-setlocal noexpandtab
+setlocal expandtab
 if &filetype != 'vundle'
 setlocal filetype=vundle
 endif
@@ -91,7 +91,7 @@ setlocal norelativenumber
 setlocal norightleft
 setlocal rightleftcmd=search
 setlocal noscrollbind
-setlocal shiftwidth=8
+setlocal shiftwidth=2
 setlocal noshortname
 setlocal nosmartindent
 setlocal softtabstop=0
@@ -99,14 +99,14 @@ setlocal spell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
-setlocal statusline=%!Powerline(3)
+setlocal statusline=%!Powerline(17)
 setlocal suffixesadd=
 setlocal noswapfile
 setlocal synmaxcol=3000
 if &syntax != 'vim'
 setlocal syntax=vim
 endif
-setlocal tabstop=8
+setlocal tabstop=2
 setlocal tags=
 setlocal textwidth=78
 setlocal thesaurus=
@@ -115,11 +115,11 @@ setlocal winfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 18 - ((17 * winheight(0) + 39) / 79)
+let s:l = 20 - ((19 * winheight(0) + 23) / 46)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-18
+20
 normal! 0
 lcd ~/
 let &so = s:so_save | let &siso = s:siso_save

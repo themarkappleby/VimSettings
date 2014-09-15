@@ -29,7 +29,7 @@ setlocal dictionary=
 setlocal nodiff
 setlocal equalprg=
 setlocal errorformat=
-setlocal noexpandtab
+setlocal expandtab
 if &filetype != 'html'
 setlocal filetype=html
 endif
@@ -77,11 +77,11 @@ setlocal norelativenumber
 setlocal norightleft
 setlocal rightleftcmd=search
 setlocal noscrollbind
-setlocal shiftwidth=8
+setlocal shiftwidth=2
 setlocal noshortname
 setlocal nosmartindent
 setlocal softtabstop=0
-setlocal nospell
+setlocal spell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
@@ -92,7 +92,7 @@ setlocal synmaxcol=3000
 if &syntax != 'html'
 setlocal syntax=html
 endif
-setlocal tabstop=8
+setlocal tabstop=2
 setlocal tags=
 setlocal textwidth=0
 setlocal thesaurus=
@@ -101,13 +101,12 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 59 - ((37 * winheight(0) + 23) / 46)
+let s:l = 6 - ((5 * winheight(0) + 23) / 46)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-59
-normal! 021l
-lcd ~/
+6
+normal! 0440l
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost
 " vim: set ft=vim :

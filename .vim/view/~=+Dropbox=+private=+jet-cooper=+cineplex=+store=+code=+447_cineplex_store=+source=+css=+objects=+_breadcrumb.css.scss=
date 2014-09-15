@@ -29,7 +29,7 @@ setlocal dictionary=
 setlocal nodiff
 setlocal equalprg=
 setlocal errorformat=
-setlocal noexpandtab
+setlocal expandtab
 if &filetype != 'scss'
 setlocal filetype=scss
 endif
@@ -77,22 +77,22 @@ setlocal norelativenumber
 setlocal norightleft
 setlocal rightleftcmd=search
 setlocal noscrollbind
-setlocal shiftwidth=8
+setlocal shiftwidth=4
 setlocal noshortname
 setlocal nosmartindent
 setlocal softtabstop=0
-setlocal nospell
+setlocal spell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
-setlocal spelllang=en
-setlocal statusline=%!Powerline(34)
+setlocal spelllang=en_us
+setlocal statusline=%!Powerline(2)
 setlocal suffixesadd=.sass,.scss,.css
 setlocal noswapfile
 setlocal synmaxcol=3000
 if &syntax != 'scss'
 setlocal syntax=scss
 endif
-setlocal tabstop=8
+setlocal tabstop=4
 setlocal tags=~/Dropbox/private/jet-cooper/cineplex/store/code/447_cineplex_store/.git/scss.tags,~/Dropbox/private/jet-cooper/cineplex/store/code/447_cineplex_store/.git/tags,./tags,tags
 setlocal textwidth=0
 setlocal thesaurus=
@@ -101,12 +101,12 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 24 - ((23 * winheight(0) + 23) / 46)
+let s:l = 16 - ((15 * winheight(0) + 23) / 47)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-24
-normal! 016l
+16
+normal! 0
 lcd ~/
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost

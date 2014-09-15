@@ -95,7 +95,7 @@ setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en
-setlocal statusline=%!Powerline(59)
+setlocal statusline=%!Powerline(18)
 setlocal suffixesadd=.rb
 setlocal noswapfile
 setlocal synmaxcol=3000
@@ -111,12 +111,12 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 1 - ((0 * winheight(0) + 23) / 46)
+let s:l = 17 - ((16 * winheight(0) + 23) / 46)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
-normal! 029l
+17
+normal! 024l
 lcd ~/
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost

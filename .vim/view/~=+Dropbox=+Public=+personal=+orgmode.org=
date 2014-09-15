@@ -205,54 +205,112 @@ setlocal wrap
 setlocal wrapmargin=0
 1
 normal! zo
-8
+2
 normal! zo
-31
+7
 normal! zo
-31
+13
+normal! zo
+14
+normal! zo
+20
+normal! zo
+21
+normal! zo
+33
+normal! zo
+36
+normal! zo
+57
+normal! zo
+73
+normal! zo
+94
+normal! zo
+97
+normal! zo
+98
+normal! zo
+101
+normal! zo
+106
+normal! zo
+138
+normal! zo
+139
+normal! zo
+149
+normal! zo
+163
+normal! zo
+179
+normal! zo
+180
+normal! zo
+181
+normal! zo
+181
 normal! zc
-8
-normal! zc
-66
+189
 normal! zo
-66
+189
 normal! zc
-100
+210
 normal! zo
-100
+210
 normal! zc
-141
+224
 normal! zo
-142
-normal! zo
-143
-normal! zo
-143
+224
 normal! zc
-172
+238
 normal! zo
-172
+238
 normal! zc
-185
+248
 normal! zo
-185
-normal! zc
-199
+257
 normal! zo
-199
-normal! zc
-142
-normal! zc
-141
-normal! zc
-298
+266
 normal! zo
-let s:l = 326 - ((325 * winheight(0) + 23) / 46)
+279
+normal! zo
+282
+normal! zo
+290
+normal! zo
+295
+normal! zo
+299
+normal! zo
+303
+normal! zo
+339
+normal! zo
+369
+normal! zo
+381
+normal! zo
+386
+normal! zo
+394
+normal! zo
+398
+normal! zo
+403
+normal! zo
+404
+normal! zo
+404
+normal! zc
+403
+normal! zc
+let s:l = 107 - ((22 * winheight(0) + 23) / 46)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-326
-normal! 054l
+107
+normal! 02l
 lcd ~/
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost

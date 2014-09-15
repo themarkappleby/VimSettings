@@ -1,5 +1,8 @@
 "-------------- Manage Bundles -------------- {{{
 
+"to install a plugin with Vundle, add the github path,
+"restart Vim, then run :BundleInstall.
+
 "perform like vim and not vi 
 set nocompatible
 
@@ -15,9 +18,6 @@ Bundle 'gmarik/vundle'
 
 "dark colour scheme
 Bundle 'tomasr/molokai'
-
-"git integration
-Bundle 'tpope/vim-fugitive'
 
 "show git diff in gutter
 Bundle 'airblade/vim-gitgutter'
@@ -61,6 +61,18 @@ Bundle 'vim-scripts/mru.vim'
 "org mode for vim
 Bundle 'jceb/vim-orgmode'
 
+"mustache and handlebars syntax highlighting
+Bundle 'mustache/vim-mustache-handlebars' 
+
+"coffescript syntax highlighting
+Bundle 'kchmck/vim-coffee-script'
+
+"Stylus syntax highlighting
+Bundle 'vim-scripts/vim-stylus'
+
+"Jade syntax highlighting
+Bundle 'vim-scripts/jade.vim'
+
 "re-enable filetype detection
 filetype plugin indent on
 
@@ -103,6 +115,12 @@ au BufReadPost *.kit set syntax=html
 set wildmode=longest,list,full
 set wildmenu
 
+"stylus file suport
+au BufReadPost *.styl set filetype=stylus
+
+"Jade file suport
+au BufReadPost *.jade set filetype=jade
+
 "drupal file support
 au BufReadPost *.module set syntax=php
 au BufReadPost *.info set syntax=php
@@ -127,10 +145,10 @@ set linebreak
 "remove random underlines
 let html_no_rendering=1
 
-"use four spaces instead of tabs
+"use two spaces instead of tabs
 set expandtab
-set shiftwidth=4
-set tabstop=4
+set shiftwidth=2
+set tabstop=2
 
 "}}}
 
@@ -215,7 +233,7 @@ set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 "-------------- Sparkup Settings -------------- {{{ 
 
 "execute sparkup with ',,'
-let g:sparkupExecuteMapping=',,'
+let g:sparkupExecuteMapping=',s'
 
 "jump to next input with ',n'
 let g:sparkupNextMapping=',n'

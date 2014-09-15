@@ -71,7 +71,7 @@ setlocal dictionary=
 setlocal nodiff
 setlocal equalprg=
 setlocal errorformat=
-setlocal noexpandtab
+setlocal expandtab
 if &filetype != 'nerdtree'
 setlocal filetype=nerdtree
 endif
@@ -119,7 +119,7 @@ setlocal norelativenumber
 setlocal norightleft
 setlocal rightleftcmd=search
 setlocal noscrollbind
-setlocal shiftwidth=8
+setlocal shiftwidth=2
 setlocal noshortname
 setlocal nosmartindent
 setlocal softtabstop=0
@@ -134,8 +134,8 @@ setlocal synmaxcol=3000
 if &syntax != 'nerdtree'
 setlocal syntax=nerdtree
 endif
-setlocal tabstop=8
-setlocal tags=~/Dropbox/Private/jet-cooper/cineplex/store/code/447_cineplex_store/.git/nerdtree.tags,~/Dropbox/Private/jet-cooper/cineplex/store/code/447_cineplex_store/.git/tags,./tags,tags
+setlocal tabstop=2
+setlocal tags=
 setlocal textwidth=0
 setlocal thesaurus=
 setlocal noundofile
@@ -143,11 +143,11 @@ setlocal nowinfixheight
 setlocal winfixwidth
 setlocal nowrap
 setlocal wrapmargin=0
-let s:l = 22 - ((21 * winheight(0) + 23) / 46)
+let s:l = 1 - ((0 * winheight(0) + 23) / 46)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-22
+1
 normal! 0
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost

@@ -1,6 +1,9 @@
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 argglobal
+setlocal keymap=
+setlocal noarabic
 setlocal noautoindent
+setlocal balloonexpr=
 setlocal nobinary
 setlocal bufhidden=
 setlocal buflisted
@@ -13,6 +16,8 @@ setlocal colorcolumn=
 setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
 setlocal commentstring=/*%s*/
 setlocal complete=.,w,b,u,t,i
+setlocal concealcursor=
+setlocal conceallevel=0
 setlocal completefunc=
 setlocal nocopyindent
 setlocal cryptmethod=
@@ -54,6 +59,7 @@ setlocal keywordprg=
 setlocal linebreak
 setlocal nolisp
 setlocal nolist
+setlocal nomacmeta
 setlocal makeprg=
 setlocal matchpairs=(:),{:},[:]
 setlocal modeline
@@ -68,6 +74,8 @@ setlocal nopreviewwindow
 setlocal quoteescape=\\
 setlocal noreadonly
 setlocal norelativenumber
+setlocal norightleft
+setlocal rightleftcmd=search
 setlocal noscrollbind
 setlocal shiftwidth=8
 setlocal noshortname
@@ -77,7 +85,7 @@ setlocal spell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
 setlocal spelllang=en_us
-setlocal statusline=%!Powerline(0)
+setlocal statusline=%!Powerline(2)
 setlocal suffixesadd=
 setlocal noswapfile
 setlocal synmaxcol=3000
@@ -93,12 +101,12 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 1 - ((0 * winheight(0) + 23) / 47)
+let s:l = 1 - ((0 * winheight(0) + 23) / 46)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 1
-normal! 0175l
+normal! 027l
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost
 " vim: set ft=vim :
