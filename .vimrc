@@ -1,8 +1,5 @@
 "-------------- Manage Bundles -------------- {{{
 
-"to install a plugin with Vundle, add the github path,
-"restart Vim, then run :BundleInstall.
-
 "perform like vim and not vi 
 set nocompatible
 
@@ -10,70 +7,45 @@ set nocompatible
 filetype off 
 
 "load vundle
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 "vundle itself
-Bundle 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
 "dark colour scheme
-Bundle 'tomasr/molokai'
+Plugin 'tomasr/molokai'
 
 "show git diff in gutter
-Bundle 'airblade/vim-gitgutter'
+Plugin 'airblade/vim-gitgutter'
 
 "displays an autocomplete pop-up
-Bundle 'vim-scripts/AutoComplPop'
+Plugin 'vim-scripts/AutoComplPop'
 
 "file explorer sidebar
-Bundle 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'
 
 "make NERDTree look consistent across tabs
-Bundle 'jistr/vim-nerdtree-tabs'
+Plugin 'jistr/vim-nerdtree-tabs'
 
 "show CSS colours
-Bundle 'skammer/vim-css-color'
-
-"quicker movement around buffer
-Bundle 'Lokaltog/vim-easymotion'
+Plugin 'skammer/vim-css-color'
 
 "makes vim's status line sexier
-Bundle 'Lokaltog/powerline'
+Plugin 'Lokaltog/powerline'
 
 "install powerline compatible fonts
-Bundle 'Lokaltog/powerline-fonts'
-
-"markdown syntax highlighting
-Bundle 'tpope/vim-markdown'
-
-"expand html
-Bundle 'tristen/vim-sparkup'
-
-"surround text with tags quickly
-Bundle 'tpope/vim-surround'
-
-"support for haml, sass, and scss
-Bundle 'tpope/vim-haml'
-
-"most recent update quick access
-Bundle 'vim-scripts/mru.vim'
-
-"org mode for vim
-Bundle 'jceb/vim-orgmode'
-
-"mustache and handlebars syntax highlighting
-Bundle 'mustache/vim-mustache-handlebars' 
-
-"coffescript syntax highlighting
-Bundle 'kchmck/vim-coffee-script'
+"note - once downloaded these fonts will need to be install with OSX FontBook
+Plugin 'Lokaltog/powerline-fonts'
 
 "Stylus syntax highlighting
-Bundle 'vim-scripts/vim-stylus'
+Plugin 'vim-scripts/vim-stylus'
 
 "Jade syntax highlighting
-Bundle 'vim-scripts/jade.vim'
+Plugin 'vim-scripts/jade.vim'
 
 "re-enable filetype detection
+call vundle#end()
 filetype plugin indent on
 
 "}}}
@@ -83,6 +55,9 @@ filetype plugin indent on
 "enable incremental search
 set incsearch
 
+"enable case-insensitive search
+set smartcase
+
 "display line numbers
 set number
 
@@ -90,6 +65,7 @@ set number
 set scrolloff=3
 
 "enable spellcheck
+"`z=` when cursor is on a incorrectly spelled word
 setlocal spell spelllang=en_us
 
 "allow yank to osx clipboard
@@ -101,16 +77,6 @@ set foldmethod=marker
 "display fold gutter column
 set foldcolumn=1
 
-"save and restore folds
-autocmd BufWinLeave *.* mkview
-autocmd BufWinEnter *.* silent loadview
-
-"ensure no CodeKit conflicts
-set nobackup
-set nowritebackup
-set noswapfile
-au BufReadPost *.kit set syntax=html
-
 "enable bash-like tab completion
 set wildmode=longest,list,full
 set wildmenu
@@ -121,17 +87,12 @@ au BufReadPost *.styl set filetype=stylus
 "Jade file suport
 au BufReadPost *.jade set filetype=jade
 
-"drupal file support
-au BufReadPost *.module set syntax=php
-au BufReadPost *.info set syntax=php
-au BufReadPost *.inc set syntax=php
-
 "}}}
 
 "-------------- Text Settings -------------- {{{
 
 "set default font
-set guifont=Inconsolata_for_Powerline:h16
+set guifont=Inconsolata_for_Powerline:h26
 
 "enable C style auto indentation
 set cindent 
@@ -218,8 +179,8 @@ let NERDTreeShowBookmarks=1
 "blur NERDTree on startup
 let g:nerdtree_tabs_smart_startup_focus=2
 
-"keep NERDTree bookmarks within vim
-let NERDTreeBookmarksFile = $HOME . '/.vim/custom/.NERDTreeBookmarks' 
+"reduce NERDTree width
+let g:NERDTreeWinSize = 20
 
 "}}}
 
@@ -230,24 +191,3 @@ set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
 "}}}
 
-"-------------- Sparkup Settings -------------- {{{ 
-
-"execute sparkup with ',,'
-let g:sparkupExecuteMapping=',s'
-
-"jump to next input with ',n'
-let g:sparkupNextMapping=',n'
-
-"}}}
-
-"-------------- Markdown Settings -------------- {{{ 
-
-"compile to markdown with ':MD'
-command! MD call CompileMarkdown()
-function! CompileMarkdown()
-	:%!~/.vim/custom/Markdown.pl --html4tags
-	:w! %:p:r.html
-	u
-endfunction
-
-"}}}

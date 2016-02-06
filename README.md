@@ -1,6 +1,9 @@
 Vim Settings
 ===
 
-My Personal Vim Settings
+1. Clone the repo `git clone https://github.com/themarkappleby/vim.git`
 
-To install, simply place the .vim folder and .vimrc file in your root and launch MacVim.
+1. Symlink `.vim` and `.vimrc` to the repo's versions with: `ln -s ~/.vim ~/path-to-repo/vim/.vim` and `ln -s `~/.vimrc ~/path-to-repo/vim/.vimrc`
+
+1. Launch vim with `vi` and install plugins with `:PluginInstall`
+
