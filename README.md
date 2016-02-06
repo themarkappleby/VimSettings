@@ -1,7 +1,7 @@
 Vim Settings
 ===
 
-1. Clone the repo `git clone https://github.com/themarkappleby/vim.git`
+1. Clone this repo `git clone https://github.com/themarkappleby/vim.git`
 
 1. Clone Vundle: `git clone https://github.com/VundleVim/Vundle.vim.git .vim/bundle/Vundle.vim`
 
